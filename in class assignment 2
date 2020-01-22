@@ -1,0 +1,36 @@
+/*program written by Samantha Orpiada on Jan 21, 2020
+ * Blink plugged into pin 13,12 and 11
+ */
+ void setup() {
+  // put your setup code here, to run once:
+    pinMode(13, OUTPUT);
+    pinMode(12, OUTPUT);
+    pinMode(11, OUTPUT);
+    pinMode(8, INPUT);
+    Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+    Serial.println(analogRead(5));
+    if(analogRead(5) < 500) {	  //a light will turn on when it sense the dark
+      digitalWrite(13,HIGH); 	  //red light to the right turns on when the light sensor is covered
+      digitalWrite(12, LOW);	  // red light in the middle turns off
+      digitalWrite(11,LOW);		  // green light turns off
+      delay(1000);				      // delays so that the green light is off while this light turns on
+    
+    }else if (analogRead(5) < 800){ //a light will turn on when it senses a moderate amount of light
+      digitalWrite (13,LOW);		    //red light to the left turns off
+      digitalWrite(12, LOW); 		    //red light in the middle turns off
+      digitalWrite(11, HIGH);		    //green light turns on 
+      delay(1000);					         //delays so that the red lights turn off
+     
+    }else if (analogRead(5) < 5000){  //a light will turn on when it senses a lot of light
+     digitalWrite(13, LOW);			      // red light to the left turns off
+     digitalWrite(12,HIGH);			     // the red light in the middle turns on 
+     digitalWrite(11,LOW);		   	  //green light turns off
+     delay(1000);					         //delays so that the green light is off while this light turns on
+
+    }
+
+}
