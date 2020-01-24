@@ -1,0 +1,27 @@
+/*program written by Samantha Orpiada on Jan 21, 2020
+ * Blink plugged into pin 13,12 and 11
+
+ */
+ void setup() {
+  // put your setup code here, to run once:
+  pinMode(13, OUTPUT); 
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT); 
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(13, HIGH);   // turn red LED on
+  delay(500);               // wait a second
+  digitalWrite(13, LOW);    //turn red LED off 
+  delay(500);               //wait a second
+  digitalWrite(12, HIGH);   // turn red LED on
+  delay(1000);              // wait a second
+  digitalWrite(12, LOW);    // turn red LED off
+  delay(1000);              // wait a second
+  digitalWrite(11, HIGH);   // turn green LED on
+  delay(50);                // wait a second
+  digitalWrite(11, LOW);    // turn green LED off
+  
+}
+
