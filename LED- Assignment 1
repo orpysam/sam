@@ -1,0 +1,24 @@
+
+// this code was found from https://kandrproject.blogspot.com/2018/01/arduino-with-sound-sensor-and-led-code.html
+
+
+const int ledpin=13; // ledpin and soundpin are not changed throughout the process
+const int soundpin=A2;  //plugged into the A2 on arduino 
+const int threshold=200; // sets threshold value for sound sensor
+
+
+void setup() {
+Serial.begin(9600); 
+pinMode(13,OUTPUT);         //using the plugged into 13 
+pinMode(soundpin,INPUT);    //the pin will be inputting information 
+}
+void loop() {
+int soundsens=analogRead(soundpin); // reads analog data from sound sensor
+if (soundsens>=threshold) {         // if the threshold of sound surpases 200
+digitalWrite(13,HIGH);              //turn led on
+delay(1000);                        //wait for a minute 
+}
+else{                               //if the threshhold of sound is not greater than 200
+digitalWrite(13,LOW);                //turn led off 
+}
+}
